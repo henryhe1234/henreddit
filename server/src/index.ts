@@ -40,7 +40,7 @@ const main = async () => {
       resave: false,
     })
   );
-  app.set("trust proxy", true);
+  app.set("trust proxy", process.env.NODE_ENV !== "productinon");
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
